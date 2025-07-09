@@ -1,0 +1,18 @@
+349th leetcode question 
+easy level question 
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        
+        unordered_set<int> set1(nums1.begin(), nums1.end()); // Step 1
+        unordered_set<int> result;                           // Step 2
+
+        for (int i : nums2) {                                // Step 3
+            if (set1.count(i)) {                             // Step 4
+                result.insert(i);                            // Step 5
+            }
+        }
+
+        return vector<int>(result.begin(), result.end());    // Step 6
+    }
+};
