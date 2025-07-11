@@ -1,0 +1,63 @@
+1.Leetcode 
+TWo sum (c++)
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return {i, j};
+                }
+            }
+        }
+        return {}; 
+    }
+};
+
+881.Boats to save people (java)
+import java.util.Arrays;
+
+class Solution {
+    public int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people); 
+        int start = 0;
+        int end = people.length - 1;
+        int boat = 0;
+
+        while (start <= end) {
+            if (people[start] + people[end] <= limit) {
+                start++;
+            }
+            end--;
+            boat++;
+        }
+
+        return boat;
+    }
+}
+
+
+2302. leetcode (hard question)
+count subarrays with score less than k
+using java code
+class Solution {
+    public long countSubarrays(int[] nums, long k) {
+        int start = 0;
+        long sum = 0;
+        long count = 0;
+        
+        for (int end = 0; end < nums.length; end++) {
+            sum += nums[end];
+            
+            while (sum * (end - start + 1) >= k) {
+                sum -= nums[start];
+                start++;
+            }
+            
+            count += (end - start + 1);
+        }
+        
+        return count;
+    }
+}
