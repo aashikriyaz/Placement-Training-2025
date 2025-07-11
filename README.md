@@ -4,7 +4,7 @@ Each folder contains problems and solutions from that day's session.
 
 ~ Goal
 
-- Practice C++ daily
+- Practice coding daily (c++ and java)
 - Get better at problem solving
 - Prepare for coding interviews
 
