@@ -15,27 +15,27 @@ public:
     }
 };
 
-881.Boats to save people (java)
-import java.util.Arrays;
-
+881.Boats to save people (c++)
 class Solution {
-    public int numRescueBoats(int[] people, int limit) {
-        Arrays.sort(people); 
-        int start = 0;
-        int end = people.length - 1;
-        int boat = 0;
+public:
+    int numRescueBoats(vector<int>& people, int limit) {
+        sort(people.begin(),people.end());  // Step 1: Sort the array
+        int i = 0, j = people.size() - 1, cnt = 0;  // Step 2: Two pointers and count
 
-        while (start <= end) {
-            if (people[start] + people[end] <= limit) {
-                start++;
+        while(i <= j) {  // Step 3: While people remain
+            if(people[i] + people[j] <= limit){  // Case 1: Lightest + Heaviest fits
+                i++;  // Take the lightest person
+                j--;  // Take the heaviest person
+            } else {
+                j--;  // Case 2: Heaviest alone (too heavy to pair)
             }
-            end--;
-            boat++;
+            cnt++;  // One boat used in either case
         }
 
-        return boat;
+        return cnt;  // Step 4: Return total boats
     }
-}
+};
+
 
 
 2302. leetcode (hard question)
