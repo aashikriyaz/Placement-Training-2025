@@ -14,3 +14,22 @@ class Solution {
         
     }
 }
+
+
+452 . leetcode(java)
+Minimum number arrow to burst balloons
+class Solution {
+    public int findMinArrowShots(int[][] points) {
+        Arrays.sort(points,(a,b) -> Integer.compare(a[1],b[1]));
+        int arrpos = points[0][1];
+        int arrow = 1;
+        for(int i =0;i<points .length;i++){
+            if(points[i][0]>arrpos){
+                arrow++;
+                arrpos=points[i][1];
+            }
+        }
+        return arrow;
+        
+    }
+}
