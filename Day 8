@@ -19,3 +19,35 @@ class RecentCounter {
     }
 
 }
+
+
+
+440.Kth smallest in lexicographical order(java)
+class Solution {
+    public int findKthNumber(int n, int k) {
+        int curr = 1;
+        k = k - 1;  
+
+        while (k > 0) {
+            int count = 0;
+            long first = curr;
+            long next = curr + 1;
+
+            while (first <= n) {
+                count += (int)(Math.min(n + 1L, next) - first);  
+                first *= 10;
+                next *= 10;
+            }
+
+            if (count <= k) {
+                curr += 1;
+                k -= count;
+            } else {
+                curr *= 10;
+                k -= 1;
+            }
+        }
+
+        return curr;
+    }
+}
