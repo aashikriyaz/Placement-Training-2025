@@ -1,4 +1,4 @@
-141.Linked List cycle (java)
+leetcode quest 141.Linked List cycle (java)
 
 public class Solution {
     public boolean hasCycle(ListNode head) {
