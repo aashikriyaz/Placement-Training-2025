@@ -36,3 +36,46 @@ class Solution {
         
     }
 }
+
+
+25.reverse nodes in k group
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+
+        ListNode curr = head;
+        ListNode grphead = null, grptail = null, newtail = null, newhead = null;
+        int count = 0;
+        ListNode temp = head;
+
+    
+        while (temp != null) {
+            temp = temp.next;
+            count++;
+        }
+
+        while (count >= k) {
+            grphead = null;
+            grptail = curr;
+
+            for (int i = 0; i < k; i++) {
+                ListNode next = curr.next;
+                curr.next = grphead;
+                grphead = curr;
+                curr = next;
+            }
+
+            if (newhead == null) {
+                newhead = grphead;
+                newtail = grptail;
+            } else {
+                newtail.next = grphead;
+                newtail = grptail;
+            }
+
+            newtail.next = curr;
+            count -= k;
+        }
+
+        return newhead;
+    }
+}
