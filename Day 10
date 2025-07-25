@@ -1,1 +1,51 @@
+637.Average of levels in Binary tree
+class Solution {
+    public List<Double> averageOfLevels(TreeNode root) {
+        Queue<TreeNode> q = new LinkedList<>();
+        LinkedList<Double> l = new LinkedList<>();
+        q.offer(root); 
+        while (!q.isEmpty()) {
+            int count = q.size();
+            double sum = 0;
+            for (int i = 0; i < count; i++) {
+                TreeNode n = q.poll();
+                sum += n.val;
+                if (n.left != null) q.offer(n.left); 
+                if (n.right != null) q.offer(n.right);
+            }
+            l.add(sum / count); 
+        }
 
+        return l;
+    }
+}
+
+82.Remove duplicates from Sorted Array
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) 
+    {
+        ListNode dummy = new ListNode(0);
+        ListNode curr = head;
+        ListNode prev = dummy;
+        dummy.next = curr;
+        while(curr!=null)
+        {
+            if(curr.next!= null && curr.val == curr.next.val)
+            {
+                while(curr.next!=null && curr.val == curr.next.val)
+                {
+                    curr = curr.next;
+                }
+                    prev.next = curr.next;
+                    curr = curr.next;
+            }
+            else
+            {
+                prev = prev.next;
+                curr = curr.next;
+            }
+        }
+        return dummy.next;
+    }
+}
