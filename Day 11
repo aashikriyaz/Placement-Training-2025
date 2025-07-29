@@ -21,3 +21,34 @@ class Solution {
         return Math.max(left,right)+1;
     }
 }
+
+968.Binary tree cameras
+
+class Solution {
+    int c = 0;
+
+    public int minCameraCover(TreeNode root) {
+        if (camera(root) == 0) {
+            c++;
+        }
+        return c;
+    }
+
+    int camera(TreeNode node) {
+        if (node == null) return -1;
+
+        int left = camera(node.left);
+        int right = camera(node.right);
+
+        if (left == 0 || right == 0) {
+            c++;
+            return 1;
+        }
+
+        if (left == 1 || right == 1) {
+            return -1;
+        }
+
+        return 0;
+    }
+}
