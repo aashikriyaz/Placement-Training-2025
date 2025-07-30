@@ -11,3 +11,27 @@ class Solution {
 
     }
 }
+
+113. Path Sum II (medium)
+class Solution {
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<Integer> path = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        findpath(root, targetSum, path, ans);  
+        return ans;
+    }
+
+    public void findpath(TreeNode node, int rs, List<Integer> path, List<List<Integer>> ans) {
+        if (node == null) return;
+        path.add(node.val);
+        
+        if (node.left == null && node.right == null && node.val == rs) {
+            ans.add(new ArrayList<>(path));
+        } else {
+            findpath(node.left, rs - node.val, path, ans);
+            findpath(node.right, rs - node.val, path, ans);
+        }
+
+        path.remove(path.size() - 1);  
+    }
+}
