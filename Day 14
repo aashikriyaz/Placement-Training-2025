@@ -7,7 +7,7 @@ public class Solution {
     }
 }
 
-24 Swap nodes in pairs 
+/////24. Swap nodes in pairs 
 
 
 class Solution {
@@ -22,7 +22,7 @@ class Solution {
 }
 
 
-2493. Divide Nodes Into the Maximum Number of Groups
+////2493. Divide Nodes Into the Maximum Number of Groups
 
 
 import java.util.*;
